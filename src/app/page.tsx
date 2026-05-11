@@ -43,7 +43,7 @@ export default function EditPage() {
   }
 
   return (
-    <div className="max-w-4xl w-full mx-auto py-10 px-6">
+    <div className="max-w-4xl w-full mx-auto py-10 px-4 sm:px-6">
       <ActionBar
         editable={editable}
         saveStatus={saveStatus}

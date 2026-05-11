@@ -9,7 +9,7 @@ export default function PostCsrPage() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-[calc(100vh-56px)]">
         <p className="text-slate-400 animate-pulse">Loading post...</p>
       </div>
     );
@@ -18,7 +18,7 @@ export default function PostCsrPage() {
   if (!post) return null;
 
   return (
-    <article className="py-10 px-6 flex flex-col items-center">
+    <article className="py-10 px-4 sm:px-6 flex flex-col items-center">
       <PostHeader
         title={post.title}
         author={post.author}
@@ -26,8 +26,6 @@ export default function PostCsrPage() {
         readingTime={post.readingTime}
         cover={post.cover}
       />
-
-      {/* Content rendered via TiptapClientRenderer */}
       <div className="w-full lg:max-w-180">
         <TiptapClientRenderer>{post.html}</TiptapClientRenderer>
       </div>

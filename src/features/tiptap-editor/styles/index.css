@@ -768,6 +768,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .rte-editor__content > .ProseMirror {
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+  }
+}
+
 .rte-editor .rte-source__content {
   position: relative;
   display: flex;

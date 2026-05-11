@@ -9,7 +9,7 @@ export default async function PostSsrPage() {
   if (!post) return notFound();
 
   return (
-    <article className="py-10 px-6 flex flex-col items-center">
+    <article className="py-10 px-4 sm:px-6 flex flex-col items-center">
       <PostHeader
         title={post.title}
         author={post.author}
@@ -17,8 +17,6 @@ export default async function PostSsrPage() {
         readingTime={post.readingTime}
         cover={post.cover}
       />
-
-      {/* Content rendered server-side via TiptapServerRenderer */}
       <div className="w-full lg:max-w-180">
         <TiptapServerRenderer>{post.html}</TiptapServerRenderer>
       </div>

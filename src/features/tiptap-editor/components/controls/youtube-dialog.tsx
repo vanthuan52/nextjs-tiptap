@@ -16,12 +16,16 @@ const YOUTUBE_PLACEHOLDER = "https://www.youtube.com/watch?v=...";
 
 const isValidYoutubeUrl = (url: string): boolean => {
   return /^(https?:\/\/)?(www\.)?(youtube\.com\/(watch\?v=|shorts\/|embed\/)|youtu\.be\/)[\w-]{11}/.test(
-    url
+    url,
   );
 };
 
-const YoutubeDialog = ({ open, onOpenChange, onInsert }: YoutubeDialogProps) => {
-  const [url, setUrl] = useState("");
+const YoutubeDialog = ({
+  open,
+  onOpenChange,
+  onInsert,
+}: YoutubeDialogProps) => {
+  const [url, setUrl] = useState("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
   const [error, setError] = useState("");
 
   const handleInsert = () => {
@@ -79,9 +83,7 @@ const YoutubeDialog = ({ open, onOpenChange, onInsert }: YoutubeDialogProps) => 
             onKeyDown={handleKeyDown}
             autoFocus
           />
-          {error && (
-            <p className="rte-youtube-dialog__error">{error}</p>
-          )}
+          {error && <p className="rte-youtube-dialog__error">{error}</p>}
           <p className="rte-youtube-dialog__hint">
             Supports youtube.com/watch, youtu.be, and YouTube Shorts links.
           </p>
@@ -92,9 +94,7 @@ const YoutubeDialog = ({ open, onOpenChange, onInsert }: YoutubeDialogProps) => 
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleInsert}>
-            Insert Video
-          </Button>
+          <Button onClick={handleInsert}>Insert Video</Button>
         </div>
       </div>
     </Dialog>

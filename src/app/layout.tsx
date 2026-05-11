@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lexend } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import Header from "@/features/tiptap-editor-demo/components/header";
 import "@/styles/globals.css";
 import "@/features/tiptap-editor/styles/index.css";
 
@@ -31,9 +33,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lexend.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${lexend.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main className="flex-1">{children}</main>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

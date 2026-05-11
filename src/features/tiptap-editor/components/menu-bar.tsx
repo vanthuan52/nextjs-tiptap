@@ -63,11 +63,21 @@ export const MenuBar = () => {
 
       <ToolbarGroup>
         <LinkButton />
-        <ImageButton />
-        <CloudinaryImageButton />
         <TableButton />
         <EmojiPopover />
+      </ToolbarGroup>
+
+      <ToolbarDivider />
+
+      <ToolbarGroup>
+        <ImageButton />
+        <CloudinaryImageButton />
         <YoutubeButton />
+      </ToolbarGroup>
+
+      <ToolbarDivider />
+
+      <ToolbarGroup>
         <InsertDropdown />
       </ToolbarGroup>
     </Toolbar>
