@@ -132,10 +132,12 @@ const MediaLibrary: React.FC<MediaLibraryProps> = ({ onInsert, onClose }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            padding: "2rem",
+            textAlign: "center",
             color: "var(--rte-muted-fg)",
           }}
         >
-          <p>
+          <p style={{ margin: 0 }}>
             Cloudinary is not ready. Environment variables are not configured.
           </p>
         </div>

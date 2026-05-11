@@ -205,7 +205,11 @@ The module reads `--rte-*` CSS variables only — override them to support dark 
 
 ### Tailwind class-based (`.dark` on `<html>`)
 
+If you use `next-themes` or toggle a `.dark` class manually, you **must** configure Tailwind v4 to use class-based dark mode. Add this to your `globals.css`:
+
 ```css
+@custom-variant dark (&:where(.dark, .dark *));
+
 .dark {
   --rte-bg: #0d1017;
   --rte-fg: #f0f6fc;
