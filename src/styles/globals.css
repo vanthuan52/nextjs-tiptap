@@ -28,7 +28,9 @@
   --rte-editor-selection: #2383e247;
 
   /* Shiki dual-theme: activate light token colors */
-  .shiki span { color: var(--shiki-light); }
+  .shiki span {
+    color: var(--shiki-light);
+  }
 }
 
 @theme inline {
@@ -40,14 +42,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 /* ─── TiptapEditor dark mode ───────────────────────────────────────────────
    The feature module reads --rte-* variables only.
    Override them here to support dark mode — no changes needed inside the feature.
-   Use .dark class (Tailwind dark mode) OR prefers-color-scheme, per your project setup.
 ── */
 
-/* Option A: Tailwind class-based dark mode (.dark on <html>) */
+/* Tailwind class-based dark mode (.dark on <html>) */
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
@@ -68,34 +68,24 @@
   --rte-overlay: #ffffff30;
   --rte-editor-code-bg: #1a2029;
   --rte-editor-scrollbar: #ffffff40;
-  --rte-shadow-1: 0px 0px 0px 1px #3d444d, 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
-  --rte-shadow-2: 0px 0px 0px 1px #3d444d, 0px 8px 16px -4px #01040966, 0px 4px 32px -4px #01040966;
+  --rte-shadow-1:
+    0px 0px 0px 1px #3d444d, 0px 6px 12px -3px #01040966,
+    0px 6px 18px 0px #01040966;
+  --rte-shadow-2:
+    0px 0px 0px 1px #3d444d, 0px 8px 16px -4px #01040966,
+    0px 4px 32px -4px #01040966;
   --rte-shadow-3: 0px 0px 0px 1px #3d444d, 0px 24px 48px 0px #010409;
 
   /* Shiki dual-theme: activate dark token colors */
   /* Editor (prosemirror-highlight, prefix --rte-shiki-) */
-  .ProseMirror pre code span { color: var(--rte-shiki-dark); }
+  .ProseMirror pre code span {
+    color: var(--rte-shiki-dark);
+  }
   /* Renderer (Shiki codeToHast, default prefix --shiki-) */
-  .shiki span { color: var(--shiki-dark); }
-}
-
-/* Option B: System dark mode (prefers-color-scheme) — uncomment if not using Tailwind class strategy */
-/*
-@media (prefers-color-scheme: dark) {
-  :root {
-    --rte-bg: #0d1017;
-    --rte-fg: #f0f6fc;
-    --rte-border: #3d444d;
-    --rte-primary: #4493f8;
-    --rte-secondary: #2e373e;
-    --rte-secondary-fg: #b1b8c0;
-    --rte-muted: #1a2029;
-    --rte-muted-fg: #b1b8c0;
-    --rte-editor-code-bg: #1a2029;
-    code span.shiki { color: var(--rte-shiki-dark); }
+  .shiki span {
+    color: var(--shiki-dark);
   }
 }
-*/
 
 body {
   background: var(--background);
