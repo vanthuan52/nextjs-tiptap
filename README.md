@@ -28,15 +28,35 @@ pnpm install && pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### Cloudinary (optional)
+### Image uploads
 
-Create `.env.local`:
+The base editor does not ship with a storage provider. By default, selecting an
+image inserts a local blob URL for preview. In production, pass your own
+`onImageUpload` or `onImageSelect` adapter and return the stored image URL.
 
-```env
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
-NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
+`mediaKey` is optional metadata for your storage layer, such as an S3 object key.
+
+```tsx
+<TiptapEditor
+  onImageUpload={async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+
+    return {
+      url: data.url,
+      width: data.width,
+      height: data.height,
+      alt: data.alt,
+      mediaKey: data.mediaKey,
+    };
+  }}
+/>
 ```
 
 ## Integration
